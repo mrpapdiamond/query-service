@@ -1,0 +1,6 @@
+---
+- hosts: all
+  become: True
+  tasks:
+  - name: Run K8s
+    shell: make k8s-init
