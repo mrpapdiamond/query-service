@@ -3,4 +3,8 @@
   become: True
   tasks:
   - name: Run K8s
-    shell: make k8s-init
+    shell: minikube start --ports=127.0.0.1:30000:30000 --ports=127.0.0.1:30010:30010 --ports=127.0.0.1:30020:30020 --ports=127.0.0.1:30030:30030
+  - name: Apply K8s
+    shell: kubectl apply -f k8s-bundle-prod.yaml
+  - name: Apply K8s
+    shell: docker run -p 80:80 --name notebook mrpapdiamond/micro1
