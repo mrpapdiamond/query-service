@@ -9,7 +9,7 @@
   - name: Removing previous image
     shell: docker rmi -f mrpapdiamond/micro1:latest
   - name: Initiating K8s
-    shell: minikube start --ports=127.0.0.1:30000:30000 --ports=127.0.0.1:30010:30010 --ports=127.0.0.1:30020:30020 --ports=127.0.0.1:30030:30030
+    shell: minikube start --ports=192.168.213.132:30000:30000 --ports=192.168.213.132:30010:30010 --ports=192.168.213.132:30020:30020 --ports=192.168.213.132:30030:30030
   - name: Apply K8s YAML file
     shell: kubectl apply -f /home/ubuntu/Desktop/k8s-bundle-prod.yaml
   - name: Running docker container
