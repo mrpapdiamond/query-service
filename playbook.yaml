@@ -6,9 +6,11 @@
     shell: kubectl delete -f /home/ubuntu/Desktop/k8s-bundle-prod.yaml
   - name: Removing previous container
     shell: docker rm -f notebook
+  - name: Removing previous image
+    shell: docker rm -f mrpapdiamond/micro1:latest
   - name: Initiating K8s
     shell: minikube start --ports=127.0.0.1:30000:30000 --ports=127.0.0.1:30010:30010 --ports=127.0.0.1:30020:30020 --ports=127.0.0.1:30030:30030
   - name: Apply K8s YAML file
     shell: kubectl apply -f /home/ubuntu/Desktop/k8s-bundle-prod.yaml
   - name: Running docker container
-    shell: docker run -p 80:80 -d --name notebook mrpapdiamond/micro1
+    shell: docker run -p 3000:80 -d --name notebook mrpapdiamond/micro1
